@@ -1,0 +1,20 @@
+# First YAML Document 
+---
+network-devices:
+  routers:
+  - rtr-ios-R1 
+  - rtr-xr-R2
+  - rtr-nx-R3 
+  switches:
+  - sw-ios-SW1
+  - sw-xe-SW2
+  - sw-nx-SW3
+---
+# Second YAML Document
+hosts:
+  - srvr1: "linux" 
+    patched: True 
+    OS: CentOS
+  - srvr2: "Microsoft Windows"
+    patched: False 
+    OS: "Windows 10"

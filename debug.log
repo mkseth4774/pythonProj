@@ -1,0 +1,68 @@
+Trying 192.168.31.153...
+Connected to 192.168.31.153.
+Escape character is '^]'.
+
+
+User Access Verification
+
+Username: cisco
+Kerberos: No default realm defined for Kerberos!
+cisco
+Password: cisco
+
+R1#term len 0
+term len 0
+R1#show version | i Cisco
+show version | i Cisco
+Cisco IOS XE Software, Version 16.03.01
+Cisco IOS Software [Denali], CSR1000V Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.3.1, RELEASE SOFTWARE (fc3)
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Cisco IOS-XE software, Copyright (c) 2005-2016 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+use. Delivery of Cisco cryptographic products does not imply
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+R1#show ip in br | ex unass
+show ip in br | ex unass
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1.13    155.1.13.1      YES NVRAM  up                    up      
+GigabitEthernet1.100   169.254.100.1   YES NVRAM  up                    up      
+GigabitEthernet1.101   192.168.31.153  YES DHCP   up                    up      
+GigabitEthernet1.146   155.1.146.1     YES NVRAM  up                    up      
+Loopback0              150.1.1.1       YES NVRAM  up                    up      
+Tunnel0                155.1.0.1       YES NVRAM  up                    up      
+
+R1#exit
+####################################################################################################
+Trying 192.168.31.154...
+Connected to 192.168.31.154.
+Escape character is '^]'.
+
+User Access Verification
+
+Username: cisco
+Kerberos: No default realm defined for Kerberos!
+cisco
+Password: cisco
+
+R2#term len 0
+term len 0
+R2#show version | i Cisco
+show version | i Cisco
+Cisco IOS XE Software, Version 16.03.01
+Cisco IOS Software [Denali], CSR1000V Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.3.1, RELEASE SOFTWARE (fc3)
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Cisco IOS-XE software, Copyright (c) 2005-2016 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+use. Delivery of Cisco cryptographic products does not imply
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+R2#show ip in br | ex unass
+show ip in br | ex unass
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1.23    155.1.23.2      YES NVRAM  up                    up      
+GigabitEthernet1.100   169.254.100.2   YES NVRAM  up                    up      
+GigabitEthernet1.101   192.168.31.154  YES DHCP   up                    up      
+Loopback0              150.1.2.2       YES NVRAM  up                    up      
+Tunnel0                155.1.0.2       YES NVRAM  up                    up      
+
+R2#exit
+####################################################################################################

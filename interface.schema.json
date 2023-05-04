@@ -1,0 +1,63 @@
+{
+"$schema": "http://json-schema.org/draft-07/schema#",
+"$id": "http://network.vendor/interface.schema.json",
+"title": "Interface",
+"description": "This is an arbitrary example of vendor-agnostic router's interface configuration",
+"type": "object", "properties": {
+"InterfaceName": {
+"description": "This field contains name of the interface",
+ "type": "string" },
+"InterfaceMTU": {
+"description": "This field contains MTU of the interface", "type": "integer",
+"minimum": 64,
+"maximum": 9216 },
+"InterfaceDescription": {
+"description": "This field contains description of the interface", "type": "string"
+}, "InterfaceQoS": {
+"description": "This object contains ingress and egress QoS policies", "type": "object",
+"properties": {
+"IngressQoS": {
+"description": "This field contains name of ingress QoS policy", "type": "string"
+}, "EgressQoS": {
+"description": "This field contains name of egress QoS policy",
+        "type": "string"
+      }
+},
+"additionalProperties": false },
+"InterfaceEncapsulation": {
+"description": "This object contains encapsulation relevant parameters", "type": "object",
+"oneOf": [
+{ "$ref": "#/definitions/EncapsulationNull" }, { "$ref": "#/definitions/EncapsulationDot1Q" }, { "$ref": "#/definitions/EncapsulationQinQ" }
+] }
+},
+"required": [ "InterfaceName", "InterfaceEncapsulation", "InterfaceMTU" ], "additionalProperties": false,
+"definitions": {
+"EncapsulationNull": {
+"description": "This object stands for null encapsulation", "properties": {
+"EncapsulationType": {
+          "enum": [ "null" ]
+} },
+"required": [ "EncapsulationType" ],
+"additionalProperties": false },
+"EncapsulationDot1Q": {
+"description": "This object stands for dot1Q encapsulation", "properties": {
+        "EncapsulationType": {
+          "enum": [ "dot1q" ]
+}, "Vlan1": {
+"type": "integer", "minimum": 1, "maximum": 4096
+} },
+"required": [ "EncapsulationType", "Vlan1" ],
+"additionalProperties": false },
+"EncapsulationQinQ": {
+"description": "This object stands for dot1Q encapsulation", "properties": {
+        "EncapsulationType": {
+          "enum": [ "qinq" ]
+}, "Vlan1": {
+"type": "integer", "minimum": 1, "maximum": 4096
+}, "Vlan2": {
+"type": "integer", "minimum": 1, "maximum": 4096
+} },
+"required": [ "EncapsulationType", "Vlan1", "Vlan2" ],
+      "additionalProperties": false
+    }
+} }

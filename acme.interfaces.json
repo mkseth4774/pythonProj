@@ -1,0 +1,15 @@
+{
+"InterfaceName": "GigabitEthernet0/2/0/10",
+"InterfaceDescription": "Customer ACME // HQ", 
+"InterfaceEncapsulation": {
+  "EncapsulationType": "qinq", 
+  "Vlan1": 172,
+  "Vlan2": 10000
+}, 
+"InterfaceQoS": {
+  "IngressQoS": "500Mbps_GOLD_in",
+  "EgressQoS": "500Mbps_GOLD_out" 
+},
+"InterfaceMTU": 9000
+}
+

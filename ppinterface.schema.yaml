@@ -1,0 +1,83 @@
+$id: http://network.vendor/interface.schema.json
+$schema: http://json-schema.org/draft-07/schema#
+additionalProperties: false
+definitions:
+  EncapsulationDot1Q:
+    additionalProperties: false
+    description: This object stands for dot1Q encapsulation
+    properties:
+      EncapsulationType:
+        enum:
+        - dot1q
+      Vlan1:
+        maximum: 4096
+        minimum: 1
+        type: integer
+    required:
+    - EncapsulationType
+    - Vlan1
+  EncapsulationNull:
+    additionalProperties: false
+    description: This object stands for null encapsulation
+    properties:
+      EncapsulationType:
+        enum:
+        - 'null'
+    required:
+    - EncapsulationType
+  EncapsulationQinQ:
+    additionalProperties: false
+    description: This object stands for dot1Q encapsulation
+    properties:
+      EncapsulationType:
+        enum:
+        - qinq
+      Vlan1:
+        maximum: 4096
+        minimum: 1
+        type: integer
+      Vlan2:
+        maximum: 4096
+        minimum: 1
+        type: integer
+    required:
+    - EncapsulationType
+    - Vlan1
+    - Vlan2
+description: This is an arbitrary example of vendor-agnostic router's interface configuration
+properties:
+  InterfaceDescription:
+    description: This field contains description of the interface
+    type: string
+  InterfaceEncapsulation:
+    description: This object contains encapsulation relevant parameters
+    oneOf:
+    - $ref: '#/definitions/EncapsulationNull'
+    - $ref: '#/definitions/EncapsulationDot1Q'
+    - $ref: '#/definitions/EncapsulationQinQ'
+    type: object
+  InterfaceMTU:
+    description: This field contains MTU of the interface
+    maximum: 9216
+    minimum: 64
+    type: integer
+  InterfaceName:
+    description: This field contains name of the interface
+    type: string
+  InterfaceQoS:
+    additionalProperties: false
+    description: This object contains ingress and egress QoS policies
+    properties:
+      EgressQoS:
+        description: This field contains name of egress QoS policy
+        type: string
+      IngressQoS:
+        description: This field contains name of ingress QoS policy
+        type: string
+    type: object
+required:
+- InterfaceName
+- InterfaceEncapsulation
+- InterfaceMTU
+title: Interface
+type: object
