@@ -19,5 +19,7 @@ rtr083,172.16.189.233,FTX8675309,admin,cisco
 rtr100,192.168.1.100,FTX9876544,admin,cisco123
 rtr101,192.168.1.88,FTX8374583,admin,cisco123
 rtr102,192.168.1.99,FTX242424,admin,cisco123
+rtr071,192.168.1.1,FTX8675309,admin,cisco123
+nx-os77, 200.200.200.200, FTX987249874, admin, cisco
 ##
 ##End of file...
